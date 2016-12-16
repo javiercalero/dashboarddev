@@ -6,6 +6,9 @@
   "author": {
     "name": "jcalero"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "@angular/common": "~2.1.1",
     "@angular/compiler": "~2.1.1",
@@ -19,13 +22,12 @@
     "body-parser": "^1.15.2",
     "co": "^4.6.0",
     "core-js": "^2.4.1",
-    "electron-prebuilt": "^1.4.12",
     "errorhandler": "^1.5.0",
     "express": "4.14.0",
-    "jade": "*",
     "method-override": "^2.3.7",
     "mongodb": "^2.2.16",
     "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta6",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "serve-favicon": "2.3.2",
@@ -33,7 +35,11 @@
     "systemjs": "0.19.39",
     "zone.js": "^0.6.25"
   },
-  "scripts": {
-    "start": "app.js"
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/node": "^6.0.45",
+    "concurrently": "^3.0.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.3"
   }
 }

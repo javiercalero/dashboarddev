@@ -91,9 +91,9 @@
     <Content Include="app\stylesheets\style.styl" />
     <Content Include="README.md" />
     <Content Include="tsconfig.json" />
-    <Content Include="views\index.jade" />
-    <Content Include="views\layout.jade" />
-    <Content Include="views\tasklist.jade" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
+    <Content Include="views\tasklist.pug" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
