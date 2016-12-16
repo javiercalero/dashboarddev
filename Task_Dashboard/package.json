@@ -19,12 +19,12 @@
     "body-parser": "^1.15.2",
     "co": "^4.6.0",
     "core-js": "^2.4.1",
-    "electron-prebuilt": "^1.4.11",
+    "electron-prebuilt": "^1.4.12",
     "errorhandler": "^1.5.0",
     "express": "4.14.0",
     "jade": "*",
     "method-override": "^2.3.7",
-    "mongodb": "^2.2.14",
+    "mongodb": "^2.2.16",
     "morgan": "^1.7.0",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
@@ -32,5 +32,8 @@
     "stylus": "*",
     "systemjs": "0.19.39",
     "zone.js": "^0.6.25"
+  },
+  "scripts": {
+    "start": "app.js"
   }
 }
