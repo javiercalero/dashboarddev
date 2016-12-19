@@ -7,42 +7,24 @@
         </div>
     </div>
     <br/>
-    <div class="row" style="display:block; border:1px;">
-        <div class="col-md-1 col-sm-1 col-xs-1">
-            <label>Task</label>
-        </div>
-        <div class="col-md-3 col-sm-1 col-xs-3">
+    
+    <div *ngFor="let item of myItems; let i = index">
+        <div class="panel-group">
+            <div [id]="i" class="panel panel-default">
+                <div class="panel-heading">{{item.name}}</div>
+                <div class="panel-body">
+                    <label class="row col-md-12 form-control">Status: {{item.status}}</label>
+                    <label class="row col-md-12 form-control">Description: {{item.description}}</label>
+                    <label class="row col-md-12 form-control">User: {{item.user}}</label>
 
-            <label>Status</label>
-            <!--<input [class.hidden]="!todo.isEditMode" type="button" class="btn btn-warning" value="Cancel" (click)="setEditState(todo, false)" />-->
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                        <input type="button" class="btn btn-info" class="pull-right" value="Edit" (click)="setEditState(item, true)" />
+                        <input type="button" class="btn btn-danger" class="pull-right" value="Delete" (click)="deleteTodo(item)" />
+                    </div>
+                </div>
+            </div>
+            <br />
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-3">
-            <label>Assigned to</label>
-            <!--<input type="button" class="btn btn-info" [class.disabled]="todo.isCompleted" class="pull-right" value="Edit" (click)="setEditState(todo, true)" />-->
-            <!--<input type="button" class="btn btn-danger" class="pull-right" value="Delete" (click)="deleteTodo(todo)" />-->
-        </div>
-    </div>
-    <div *ngFor="let item of myItems; let i = index" class="col-md-12 col-sm-12 col-xs-12">
-        <!--<div class="alert alert-info text-center" [hidden]="myItems.length <= 0">
-            <h3>No Todos yet!</h3>
-        </div>-->
-        <br/>
-        
-        <div [id]="i" class="row">
-            <div class="col-md-1 col-sm-1 col-xs-1">
-                <label>{{item.name}}</label>
-            </div>
-            <div class="col-md-3 col-sm-1 col-xs-3">
-                <label>{{item.status}}</label>
-                <!--<input [class.hidden]="!todo.isEditMode" type="button" class="btn btn-warning" value="Cancel" (click)="setEditState(todo, false)" />-->
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3">
-                <label>{{item.user}}</label>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-3">
-                <input type="button" class="btn btn-info" [class.disabled]="todo.isCompleted" class="pull-right" value="Edit" (click)="setEditState(item, true)" />
-                <input type="button" class="btn btn-danger" class="pull-right" value="Delete" (click)="deleteTodo(item)" />
-            </div>
-        </div>
+
     </div>
 </div>

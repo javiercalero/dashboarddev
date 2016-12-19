@@ -1,5 +1,5 @@
 ﻿import express = require('express');
-var url = 'mongodb://admin:39781550@mongodb/mongodb';
+var url = process.env.MONGO_DB_CONNECT;//'mongodb://admin:39781550@mongodb/mongodb';
 //var url = 'mongodb://localhost:27017/myMongoDB';
 import router = express.Router;
 var ObjectId = require('mongodb').ObjectID;

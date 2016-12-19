@@ -1,5 +1,5 @@
 "use strict";
-var url = 'mongodb://admin:39781550@mongodb/mongodb';
+var url = 'mongodb://localhost:27017/myMongoDB';
 var ObjectId = require('mongodb').ObjectID;
 function getTaskById(req, res) {
     var tareas;

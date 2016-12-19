@@ -25,7 +25,7 @@ export class DataService {
 
     public GetAll = (): Observable<Task[]> => {
         return this._http.get('/tasks')
-            .map((response: Response) => <Task[]>response.json())
+            .map((response: Response) => response.json() as Task[])
             .catch(this.handleError);
     }
 
