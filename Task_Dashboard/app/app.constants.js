@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 let Configuration = class Configuration {
     constructor() {
-        this.Server = "http://localhost:1337";
+        this.Server = window.location.host;
         this.ApiUrl = "/tasks";
         this.ServerWithApiUrl = this.Server + this.ApiUrl;
     }

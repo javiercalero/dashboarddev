@@ -80,6 +80,7 @@
     <Content Include="app\javascripts\_references.js" />
     <Content Include="app\tsconfig.json" />
     <Content Include="app\views\tasklist.html" />
+    <Content Include="app\favicon.ico" />
     <Content Include="package.json" />
     <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />

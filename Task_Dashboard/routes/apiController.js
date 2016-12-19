@@ -1,5 +1,5 @@
 "use strict";
-var url = 'mongodb://user8PK:XtkwSoRKgKkftXjb@mongodb/dashboarddev';
+var url = 'mongodb://user8PK:XtkwSoRKgKkftXjb@mongodb-dashboarddev.44fs.preview.openshiftapps.com/dashboarddev';
 var ObjectId = require('mongodb').ObjectID;
 function getTaskById(req, res) {
     var tareas;

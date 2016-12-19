@@ -1,5 +1,5 @@
 ﻿import express = require('express');
-var url = 'mongodb://user8PK:XtkwSoRKgKkftXjb@mongodb/dashboarddev';
+var url = 'mongodb://user8PK:XtkwSoRKgKkftXjb@mongodb-dashboarddev.44fs.preview.openshiftapps.com/dashboarddev';
 import router = express.Router;
 var ObjectId = require('mongodb').ObjectID;
 
