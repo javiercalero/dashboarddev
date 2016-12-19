@@ -2,7 +2,7 @@
  
 @Injectable()
 export class Configuration {
-    public Server: string = "http://localhost:1337";
+    public Server: string = window.location.host;
     public ApiUrl: string = "/tasks";
     public ServerWithApiUrl = this.Server + this.ApiUrl;
 }
