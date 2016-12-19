@@ -19,7 +19,7 @@ let DataService = class DataService {
         this._http = _http;
         this._configuration = _configuration;
         this.GetAll = () => {
-            return this._http.get(this.actionUrl)
+            return this._http.get(this.serverUrl + '/tasks')
                 .map((response) => response.json())
                 .catch(this.handleError);
         };

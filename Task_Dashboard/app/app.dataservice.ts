@@ -24,7 +24,7 @@ export class DataService {
     }
 
     public GetAll = (): Observable<Task[]> => {
-        return this._http.get(this.actionUrl)
+        return this._http.get(this.serverUrl + '/tasks')
             .map((response: Response) => <Task[]>response.json())
             .catch(this.handleError);
     }
