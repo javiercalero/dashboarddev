@@ -55,7 +55,7 @@
       <TestFramework>Tape</TestFramework>
     </TypeScriptCompile>
     <TypeScriptCompile Include="app\models\task.ts" />
-    <TypeScriptCompile Include="app\Tasks_Component.ts" />
+    <TypeScriptCompile Include="app\tasks_component.ts" />
     <TypeScriptCompile Include="routes\apiController.ts" />
     <TypeScriptCompile Include="routes\index.ts" />
     <TypeScriptCompile Include="Scripts\typings\express\express.d.ts" />

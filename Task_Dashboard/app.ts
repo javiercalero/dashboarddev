@@ -47,9 +47,9 @@ app.get('/about', routes.about);
 app.get('/contact', routes.contact);
 app.get('/tasks', api.getTasks);
 app.get('/task/:id', api.getTaskById);
-app.post('/updateTask/:id', api.updateTaskById);
+app.post('/updateTask', api.updateTaskById);
 app.post('/addTask', api.addTask);
-app.post('/deleteTask/:id', api.deleteTask);
+app.get('/deleteTask/:id', api.deleteTask);
 
 
 http.createServer(app).listen(app.get('port'), function () {

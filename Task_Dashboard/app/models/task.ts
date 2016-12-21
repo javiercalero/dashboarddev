@@ -4,5 +4,7 @@
     public description: string;
     public status: string;
     public user: string;
-    public date: string;
+    public created_date: string;
+    public priority: string;
+    public disableEdit: boolean;
 }

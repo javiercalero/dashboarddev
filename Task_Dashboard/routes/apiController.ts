@@ -56,13 +56,25 @@ export function getTasks(req: express.Request, res: express.Response) {
 
 export function updateTaskById(req: express.Request, res: express.Response) {
     var task = req.body;
-    var updObj = { name: "", despcription: "", status: "", user: ""};
+    var updObj = {_id: ObjectId, name: "", despcription: "", status: "", user: "", created_date: "", priority: ""};
 
-    if (task.status != undefined) {
-        updObj.status = task.isCompleted;
+    if (task._id != undefined) {
+        updObj._id = new ObjectId(task._id); 
     }
-    if (task.name) {
+    if (task.status != undefined) {
+        updObj.status = task.status;
+    }
+    if (task.name != undefined) {
         updObj.name = task.name;
+    }
+    if (task.description != undefined) {
+        updObj.despcription = task.description;
+    }
+    if (task.user != undefined) {
+        updObj.user = task.user;
+    }
+    if (task.priority != undefined) {
+        updObj.priority = task.priority;
     }
 
     if (!updObj) {
@@ -80,7 +92,7 @@ export function updateTaskById(req: express.Request, res: express.Response) {
             console.log("Connected correctly to server");
 
             db.collection('Tasks').update({
-                '_id': new ObjectId(req.params.id)
+                '_id': new ObjectId(task._id)
             }, updObj, {}, function (err, result) {
                 if (err) {
                     res.send(err);
@@ -97,7 +109,7 @@ export function updateTaskById(req: express.Request, res: express.Response) {
 //Add new task
 export function addTask(req: express.Request, res: express.Response) {
     var task = req.body;
-    var updObj = { name: "", description: "", status: "", user: "" };
+    var updObj = { name: "", description: "", status: "", user: "", priority: "" };
 
     if (task.status != undefined) {
         updObj.status = task.isCompleted;
@@ -122,9 +134,11 @@ export function addTask(req: express.Request, res: express.Response) {
 
             db.collection('Tasks').insertOne({
                 'name': updObj.name, 
-                'description': updObj.description,
-                'status': updObj.status,
-                'user': updObj.user
+                'description': '',
+                'status': '',
+                'user': '',
+                'created_date': new Date().toISOString().slice(0, 10),
+                'priority': ''
             }, updObj, {}, function (err, result) {
                 if (err) {
                     res.send(err);

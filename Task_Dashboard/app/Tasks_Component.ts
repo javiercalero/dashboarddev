@@ -11,7 +11,7 @@ import { Configuration } from "./app.constants";
 
 export class AppComponent implements OnInit {
     public myItems: Task[];
-
+    
     constructor(private _dataService: DataService) { }
 
     ngOnInit() {
@@ -22,7 +22,12 @@ export class AppComponent implements OnInit {
     private getAllItems(): void {
         this._dataService
             .GetAll()
-            .subscribe((data: Task[]) => this.myItems = data,
+            .subscribe((data: Task[]) => {
+                this.myItems = data;
+                for (let task of this.myItems) {
+                    task.disableEdit = true;
+                }
+            },
             error => console.log(error),
             () => console.log('Get all Items complete'));
     }
@@ -37,9 +42,30 @@ export class AppComponent implements OnInit {
         return myTask;
     }
 
-    public addNewTask(myTask: Task): void {
-        this._dataService.Add(myTask).subscribe((data: Task) => myTask = data,
+    public addNewTask(name): void {
+        if (name.value != undefined && name.value != "" && name.value != 'Add a new task') {
+            var myTask = new Task();
+            myTask.name = name.value;
+            this._dataService.Add(myTask).subscribe((data: Task) => { myTask = data; this.getAllItems(); },
+                error => console.log(error),
+                () => console.log());
+        }
+    }
+
+    public updateTask(myTask: Task): void {
+        this._dataService.Update(myTask).subscribe((data: Task) => { myTask = data; this.getAllItems();},
             error => console.log(error),
             () => console.log());
+    }
+
+    public deleteTask(id: string): void {
+        this._dataService.Delete(id);
+    }
+
+    public setEditState(myTask: Task, state: boolean): void {
+        var lookupTask = [myTask].find(task => task._id == myTask._id);
+
+        if (lookupTask != undefined)
+            lookupTask.disableEdit = state;
     }
 }

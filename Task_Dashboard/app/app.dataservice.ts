@@ -43,14 +43,15 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    public Update = (id: string, itemToUpdate: Task): Observable<Task> => {
-        return this._http.put(this.serverUrl + '/updateTask/' + id, JSON.stringify(itemToUpdate), { headers: this.headers })
+    public Update = (myTask: Task): Observable<Task> => {
+        return this._http.post(this.serverUrl + '/updateTask/', JSON.stringify(myTask), { headers: this.headers })
             .map((response: Response) => <Task>response.json())
             .catch(this.handleError);
     }
 
-    public Delete = (id: number): Observable<Response> => {
-        return this._http.delete(this.serverUrl + '/deleteTask/' + id)
+    public Delete = (id: string): Observable<Object> => {
+        return this._http.get(this.serverUrl + '/deleteTask/' + id)
+            .map((response: Response) => <Object>response.json())
             .catch(this.handleError);
     }
 

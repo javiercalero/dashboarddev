@@ -3,28 +3,31 @@
     <hr>
     <div class="row col-md-12">
         <div>
-            <input class="form-control input-lg" placeholder="Add a new task" autofocus >
+            <input class="form-control input-lg" placeholder="Add a new task" autofocus #todotext (blur)="addNewTask(todotext)"/>
         </div>
     </div>
     <br/>
     
     <div *ngFor="let item of myItems; let i = index">
-        <div class="panel-group">
+        <div class="row" style="width: 500px; float:left; padding:2px; margin: 10px">
             <div [id]="i" class="panel panel-default">
-                <div class="panel-heading">{{item.name}}</div>
+                <div class="panel-heading"><h3>{{item.name}}</h3></div>
                 <div class="panel-body">
-                    <label class="row col-md-12 form-control">Status: {{item.status}}</label>
-                    <label class="row col-md-12 form-control">Description: {{item.description}}</label>
-                    <label class="row col-md-12 form-control">User: {{item.user}}</label>
-
-                    <div class="col-md-3 col-sm-3 col-xs-3">
-                        <input type="button" class="btn btn-info" class="pull-right" value="Edit" (click)="setEditState(item, true)" />
-                        <input type="button" class="btn btn-danger" class="pull-right" value="Delete" (click)="deleteTodo(item)" />
+                    <label class="row ">Status:</label><input class="row form-control input-lg" [(ngModel)]="item.status" [disabled]="item.disableEdit" />
+                    <label class="row  ">Description:</label><textarea class="row form-control input-lg col-md-12" [(ngModel)]="item.description" [disabled]="item.disableEdit" ></textarea> 
+                    <label class="row  ">User:</label><input class="row form-control input-lg"  [(ngModel)]="item.user" [disabled]="item.disableEdit" /> 
+                    <label class="row  ">Created Date:</label><input class="row form-control input-lg" [(ngModel)]="item.created_date" disabled="disabled" /> 
+                    <label class="row  ">Priority:</label><input class="row form-control input-lg" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
+                    <br/>
+                    <div class="row col-md-12">
+                        <input type="button" class="btn btn-danger pull-right col-sm-3" value="Delete" (click)="deleteTask(item._id)" />
+                        <input type="button" class="btn btn-info col-sm-3" value="Edit" (click)="setEditState(item, false)" />
+                        <input type="button" class="btn btn-info col-sm-3" value="Save" [disabled]="item.disableEdit" (click)="updateTask(item)" />
+                        <input type="button" class="btn btn-info col-sm-3" value="Cancel" [disabled]="item.disableEdit" (click)="setEditState(item, true)" />
                     </div>
                 </div>
             </div>
             <br />
         </div>
-
     </div>
 </div>
