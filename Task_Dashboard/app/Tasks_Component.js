@@ -34,23 +34,28 @@ let AppComponent = class AppComponent {
         this._dataService.GetSingle(id).subscribe((data) => myTask = data, error => console.log(error), () => console.log('Get Item by id complete'));
         return myTask;
     }
-    addNewTask(name) {
-        if (name.value != undefined && name.value != "" && name.value != 'Add a new task') {
+    addNewTask(todoInput) {
+        if (todoInput.value != undefined && todoInput.value != "" && todoInput.value != 'Add a new task') {
             var myTask = new task_1.Task();
-            myTask.name = name.value;
-            this._dataService.Add(myTask).subscribe((data) => { myTask = data; this.getAllItems(); }, error => console.log(error), () => console.log());
+            myTask.name = todoInput.value;
+            this._dataService.Add(myTask).subscribe((data) => { todoInput.placeholder = 'Add a new task'; this.ngOnInit(); }, error => console.log(error), () => console.log());
         }
     }
     updateTask(myTask) {
-        this._dataService.Update(myTask).subscribe((data) => { myTask = data; this.getAllItems(); }, error => console.log(error), () => console.log());
+        this._dataService.Update(myTask).subscribe((data) => { myTask = data; }, error => console.log(error), () => console.log());
     }
-    deleteTask(id) {
-        this._dataService.Delete(id);
+    deleteTask(myTask) {
+        this._dataService.Delete(myTask).subscribe((data) => { var res = data; this.ngOnInit(); }, error => console.log(error), () => console.log());
     }
     setEditState(myTask, state) {
         var lookupTask = [myTask].find(task => task._id == myTask._id);
         if (lookupTask != undefined)
             lookupTask.disableEdit = state;
+    }
+    keyDownFunction(event, todoText) {
+        if (event.keyCode == 13) {
+            this.addNewTask(todoText);
+        }
     }
 };
 AppComponent = __decorate([

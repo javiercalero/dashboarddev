@@ -139,7 +139,7 @@ export function addTask(req: express.Request, res: express.Response) {
                 'user': '',
                 'created_date': new Date().toISOString().slice(0, 10),
                 'priority': ''
-            }, updObj, {}, function (err, result) {
+            }, function (err, result) {
                 if (err) {
                     res.send(err);
                 } else {
@@ -163,7 +163,7 @@ export function deleteTask(req: express.Request, res: express.Response) {
         console.log("Connected correctly to server");
 
         db.collection('Tasks').deleteOne({
-            '_id': new ObjectId(req.params.id)
+            '_id': new ObjectId(req.body._id)
         }, '', function (err, result) {
             if (err) {
                 res.send(err);

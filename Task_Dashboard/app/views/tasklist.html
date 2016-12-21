@@ -3,7 +3,7 @@
     <hr>
     <div class="row col-md-12">
         <div>
-            <input class="form-control input-lg" placeholder="Add a new task" autofocus #todotext (blur)="addNewTask(todotext)"/>
+            <input class="form-control input-lg" placeholder="Add a new task" autofocus #todotext (keydown)="keyDownFunction($event, todotext)"/>
         </div>
     </div>
     <br/>
@@ -20,7 +20,7 @@
                     <label class="row  ">Priority:</label><input class="row form-control input-lg" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
                     <br/>
                     <div class="row col-md-12">
-                        <input type="button" class="btn btn-danger pull-right col-sm-3" value="Delete" (click)="deleteTask(item._id)" />
+                        <input type="button" class="btn btn-danger pull-right col-sm-3" value="Delete" (click)="deleteTask(item)" />
                         <input type="button" class="btn btn-info col-sm-3" value="Edit" (click)="setEditState(item, false)" />
                         <input type="button" class="btn btn-info col-sm-3" value="Save" [disabled]="item.disableEdit" (click)="updateTask(item)" />
                         <input type="button" class="btn btn-info col-sm-3" value="Cancel" [disabled]="item.disableEdit" (click)="setEditState(item, true)" />

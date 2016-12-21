@@ -49,8 +49,8 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    public Delete = (id: string): Observable<Object> => {
-        return this._http.get(this.serverUrl + '/deleteTask/' + id)
+    public Delete = (myTask: Task): Observable<Object> => {
+        return this._http.post(this.serverUrl + '/deleteTask/', JSON.stringify(myTask), { headers: this.headers })
             .map((response: Response) => <Object>response.json())
             .catch(this.handleError);
     }

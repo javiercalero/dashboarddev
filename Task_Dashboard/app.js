@@ -29,7 +29,7 @@ app.get('/tasks', api.getTasks);
 app.get('/task/:id', api.getTaskById);
 app.post('/updateTask', api.updateTaskById);
 app.post('/addTask', api.addTask);
-app.get('/deleteTask/:id', api.deleteTask);
+app.post('/deleteTask', api.deleteTask);
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });

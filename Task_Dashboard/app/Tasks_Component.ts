@@ -42,24 +42,26 @@ export class AppComponent implements OnInit {
         return myTask;
     }
 
-    public addNewTask(name): void {
-        if (name.value != undefined && name.value != "" && name.value != 'Add a new task') {
+    public addNewTask(todoInput): void {
+        if (todoInput.value != undefined && todoInput.value != "" && todoInput.value != 'Add a new task') {
             var myTask = new Task();
-            myTask.name = name.value;
-            this._dataService.Add(myTask).subscribe((data: Task) => { myTask = data; this.getAllItems(); },
+            myTask.name = todoInput.value;
+            this._dataService.Add(myTask).subscribe((data: Task) => { todoInput.placeholder = 'Add a new task'; this.ngOnInit(); },
                 error => console.log(error),
                 () => console.log());
         }
     }
 
     public updateTask(myTask: Task): void {
-        this._dataService.Update(myTask).subscribe((data: Task) => { myTask = data; this.getAllItems();},
+        this._dataService.Update(myTask).subscribe((data: Task) => { myTask = data; },
             error => console.log(error),
             () => console.log());
     }
 
-    public deleteTask(id: string): void {
-        this._dataService.Delete(id);
+    public deleteTask(myTask: Task): void {
+        this._dataService.Delete(myTask).subscribe((data: any) => { var res = data; this.ngOnInit();},
+            error => console.log(error),
+                () => console.log());
     }
 
     public setEditState(myTask: Task, state: boolean): void {
@@ -67,5 +69,11 @@ export class AppComponent implements OnInit {
 
         if (lookupTask != undefined)
             lookupTask.disableEdit = state;
+    }
+
+    public keyDownFunction(event, todoText): void {
+        if (event.keyCode == 13) {
+            this.addNewTask(todoText);
+        }
     }
 }

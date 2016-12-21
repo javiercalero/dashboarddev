@@ -39,8 +39,8 @@ let DataService = class DataService {
                 .map((response) => response.json())
                 .catch(this.handleError);
         };
-        this.Delete = (id) => {
-            return this._http.get(this.serverUrl + '/deleteTask/' + id)
+        this.Delete = (myTask) => {
+            return this._http.post(this.serverUrl + '/deleteTask/', JSON.stringify(myTask), { headers: this.headers })
                 .map((response) => response.json())
                 .catch(this.handleError);
         };
