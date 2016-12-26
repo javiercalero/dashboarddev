@@ -56,7 +56,7 @@ export function getTasks(req: express.Request, res: express.Response) {
 
 export function updateTaskById(req: express.Request, res: express.Response) {
     var task = req.body;
-    var updObj = {_id: ObjectId, name: "", despcription: "", status: "", user: "", created_date: "", priority: ""};
+    var updObj = {_id: ObjectId, name: "", description: "", status: "", user: "", created_date: "", priority: ""};
 
     if (task._id != undefined) {
         updObj._id = new ObjectId(task._id); 
@@ -68,13 +68,16 @@ export function updateTaskById(req: express.Request, res: express.Response) {
         updObj.name = task.name;
     }
     if (task.description != undefined) {
-        updObj.despcription = task.description;
+        updObj.description = task.description;
     }
     if (task.user != undefined) {
         updObj.user = task.user;
     }
     if (task.priority != undefined) {
         updObj.priority = task.priority;
+    }
+    if (task.created_date != undefined) {
+        updObj.created_date = task.created_date;
     }
 
     if (!updObj) {
@@ -93,7 +96,7 @@ export function updateTaskById(req: express.Request, res: express.Response) {
 
             db.collection('Tasks').update({
                 '_id': new ObjectId(task._id)
-            }, updObj, {}, function (err, result) {
+            }, updObj, function (err, result) {
                 if (err) {
                     res.send(err);
                 } else {

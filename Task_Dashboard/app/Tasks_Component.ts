@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
     }
 
     public updateTask(myTask: Task): void {
-        this._dataService.Update(myTask).subscribe((data: Task) => { myTask = data; },
+        this._dataService.Update(myTask).subscribe((data: any) => { this.ngOnInit(); },
             error => console.log(error),
             () => console.log());
     }

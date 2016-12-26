@@ -13,12 +13,17 @@
             <div [id]="i" class="panel panel-default">
                 <div class="panel-heading"><h3>{{item.name}}</h3></div>
                 <div class="panel-body">
-                    <label class="row ">Status:</label><input class="row form-control input-lg" [(ngModel)]="item.status" [disabled]="item.disableEdit" />
-                    <label class="row  ">Description:</label><textarea class="row form-control input-lg col-md-12" [(ngModel)]="item.description" [disabled]="item.disableEdit" ></textarea> 
-                    <label class="row  ">User:</label><input class="row form-control input-lg"  [(ngModel)]="item.user" [disabled]="item.disableEdit" /> 
-                    <label class="row  ">Created Date:</label><input class="row form-control input-lg" [(ngModel)]="item.created_date" disabled="disabled" /> 
-                    <label class="row  ">Priority:</label><input class="row form-control input-lg" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
+                    <label class="row ">Status:</label><input class="row form-control" [(ngModel)]="item.status" [disabled]="item.disableEdit" />
+                    <br />
+                    <label class="row  ">Description:</label><textarea class="row form-control"  [disabled]="item.disableEdit" [(ngModel)]="item.description" ></textarea> 
+                    <br />
+                    <label class="row  ">User:</label><input class="row form-control"  [(ngModel)]="item.user" [disabled]="item.disableEdit" /> 
+                    <br />
+                    <label class="row  ">Created Date:</label><input class="row form-control" disabled="disabled" [(ngModel)]="item.created_date" />  
+                    <br />
+                    <label class="row  ">Priority:</label><input class="row form-control" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
                     <br/>
+                    <br />
                     <div class="row col-md-12">
                         <input type="button" class="btn btn-danger pull-right col-sm-3" value="Delete" (click)="deleteTask(item)" />
                         <input type="button" class="btn btn-info col-sm-3" value="Edit" (click)="setEditState(item, false)" />

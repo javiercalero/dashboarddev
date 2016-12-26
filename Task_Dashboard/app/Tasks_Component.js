@@ -42,7 +42,7 @@ let AppComponent = class AppComponent {
         }
     }
     updateTask(myTask) {
-        this._dataService.Update(myTask).subscribe((data) => { myTask = data; }, error => console.log(error), () => console.log());
+        this._dataService.Update(myTask).subscribe((data) => { this.ngOnInit(); }, error => console.log(error), () => console.log());
     }
     deleteTask(myTask) {
         this._dataService.Delete(myTask).subscribe((data) => { var res = data; this.ngOnInit(); }, error => console.log(error), () => console.log());

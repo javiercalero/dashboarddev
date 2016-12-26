@@ -43,9 +43,9 @@ export class DataService {
             .catch(this.handleError);
     }
 
-    public Update = (myTask: Task): Observable<Task> => {
+    public Update = (myTask: Task): Observable<Object> => {
         return this._http.post(this.serverUrl + '/updateTask/', JSON.stringify(myTask), { headers: this.headers })
-            .map((response: Response) => <Task>response.json())
+            .map((response: Response) => <Object>response.json())
             .catch(this.handleError);
     }
 
