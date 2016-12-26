@@ -13,15 +13,15 @@
             <div [id]="i" class="panel panel-default">
                 <div class="panel-heading"><h3>{{item.name}}</h3></div>
                 <div class="panel-body">
-                    <label class="row ">Status:</label><input class="row form-control" [(ngModel)]="item.status" [disabled]="item.disableEdit" />
+                    <label class="row ">Status:</label><input class="form-control" [(ngModel)]="item.status" [disabled]="item.disableEdit" />
                     <br />
-                    <label class="row  ">Description:</label><textarea class="row form-control"  [disabled]="item.disableEdit" [(ngModel)]="item.description" ></textarea> 
+                    <label class="row  ">Description:</label><textarea class="form-control"  [disabled]="item.disableEdit" [(ngModel)]="item.description" ></textarea> 
                     <br />
-                    <label class="row  ">User:</label><input class="row form-control"  [(ngModel)]="item.user" [disabled]="item.disableEdit" /> 
+                    <label class="row  ">User:</label><input class="form-control"  [(ngModel)]="item.user" [disabled]="item.disableEdit" /> 
                     <br />
-                    <label class="row  ">Created Date:</label><input class="row form-control" disabled="disabled" [(ngModel)]="item.created_date" />  
+                    <label class="row  ">Created Date:</label><input class="form-control" disabled="disabled" [(ngModel)]="item.created_date" />  
                     <br />
-                    <label class="row  ">Priority:</label><input class="row form-control" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
+                    <label class="row  ">Priority:</label><input class="form-control" [(ngModel)]="item.priority" [disabled]="item.disableEdit" /> 
                     <br/>
                     <br />
                     <div class="row col-md-12">

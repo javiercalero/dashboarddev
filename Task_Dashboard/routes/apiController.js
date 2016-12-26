@@ -22,7 +22,7 @@ function getTasks(req, res) {
     co(function* () {
         var db = yield MongoClient.connect(url);
         console.log("Connected correctly to server");
-        db.collection('Tasks').find({}, function (err, cursor) {
+        db.collection('Tasks').find({}, { "sort": [['created_date', 'desc']] }, function (err, cursor) {
             cursor.toArray(function (err, results) {
                 res.json(results);
             });
@@ -111,7 +111,7 @@ function addTask(req, res) {
                 'description': '',
                 'status': '',
                 'user': '',
-                'created_date': new Date().toISOString().slice(0, 10),
+                'created_date': new Date().toISOString().slice(0, 19),
                 'priority': ''
             }, function (err, result) {
                 if (err) {

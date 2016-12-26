@@ -40,7 +40,7 @@ export function getTasks(req: express.Request, res: express.Response) {
         console.log("Connected correctly to server");
 
 
-        db.collection('Tasks').find({}, function (err, cursor) {
+        db.collection('Tasks').find({}, { "sort": [['created_date', 'desc']]}, function (err, cursor) {
             cursor.toArray(function (err, results) {
                 res.json(results);
             });
@@ -140,7 +140,7 @@ export function addTask(req: express.Request, res: express.Response) {
                 'description': '',
                 'status': '',
                 'user': '',
-                'created_date': new Date().toISOString().slice(0, 10),
+                'created_date': new Date().toISOString().slice(0, 19),
                 'priority': ''
             }, function (err, result) {
                 if (err) {
