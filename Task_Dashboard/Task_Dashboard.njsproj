@@ -100,7 +100,6 @@
     <Folder Include="app\" />
     <Folder Include="app\models\" />
     <Folder Include="app\views\" />
-    <Folder Include="public\" />
     <Folder Include="app\fonts\" />
     <Folder Include="app\images\" />
     <Folder Include="app\javascripts\" />

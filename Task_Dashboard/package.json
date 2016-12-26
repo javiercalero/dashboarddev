@@ -21,7 +21,6 @@
     "@angular/upgrade": "~2.1.1",
     "body-parser": "^1.15.2",
     "co": "^4.6.0",
-    "core-js": "^2.4.1",
     "errorhandler": "^1.5.0",
     "express": "4.14.0",
     "method-override": "^2.3.7",
@@ -34,12 +33,5 @@
     "stylus": "*",
     "systemjs": "0.19.39",
     "zone.js": "^0.6.25"
-  },
-  "devDependencies": {
-    "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.45",
-    "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
-    "typescript": "^2.0.3"
   }
 }
